@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1">
+    </div>
+    <script>
+    fetch("https://jsonplaceholder.typicode.com/posts").then((res)=>{
+        return res.json() 
+    }).then((data)=>{
+        let s="<table><tr><th>userId</th><th>Id</th><th>title</th><th>body</th></tr>"
+            for(let i=0; i<data.length; i++)
+            {
+                s=s+`<tr><td>${data[i].userId}</td><td>${data[i].id}</td><td>${data[i].title}</td><td>${data[i].body}</td></tr>`
+            }
+            s=s+'</table>'
+            document.getElementById("d1").innerHTML=s
+    })
+    </script>
+  </div>  
+</body>
+</html>
